@@ -18,4 +18,4 @@ api/.env
 # Optional: Ignore test coverage or IDE-specific files
 coverage/
 .vscode/
-.idea/
+.idea/api/node_modules/

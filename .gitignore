@@ -1,0 +1,21 @@
+# Ignore node_modules in both client and api
+client/node_modules/
+api/node_modules/
+
+# Ignore build output
+client/dist/
+
+# Ignore environment files
+client/.env
+api/.env
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+
+# Optional: Ignore test coverage or IDE-specific files
+coverage/
+.vscode/
+.idea/

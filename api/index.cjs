@@ -71,9 +71,10 @@ app.post('/login', async (req,res) => {
 app.get('/profile', (req,res)=>{
     const {token} = req.cookies;
     if(token){
-        jwt.verify(token, jwtSecret, {}, (err, user)=>{
+        jwt.verify(token, jwtSecret, {}, async(err, userData)=>{
             if(err) throw err;
-            res.json(user);
+            const {name, email, _id} = await User.findById(userData.id);
+            res.json({name, email, _id});
 
 
         });
@@ -81,8 +82,13 @@ app.get('/profile', (req,res)=>{
     }else{
         res.json('no token');
     }
-    res.json({token});
+    
 })
+
+app.post('/logout', (req,res)=>{
+    res.cookie('token', '').json(true);
+
+});
 console.log('Server is running on port 4000');
 app.listen(4000);
 // B6HhBha7m4aJPGIr

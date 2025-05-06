@@ -6,6 +6,8 @@ import Layout from './Layout.jsx';
 import RegisterPage from './Pages/RegisterPage.jsx';
 import axios from 'axios';
 import { UserContextProvider } from './UserContext.jsx';
+import AccountPage from './Pages/AccountPage.jsx';
+import {Link,Navigate} from 'react-router-dom'; 
 
 axios.defaults.baseURL = 'http://localhost:4000';
 
@@ -17,6 +19,8 @@ function App() {
         <Route index element={<IndexPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
+        <Route path='/account/:subpage?' element= {<AccountPage />} />
+
       
       </Route>
       
